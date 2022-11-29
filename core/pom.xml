@@ -35,4 +35,7 @@
         </dependency>
         <!-- End Testing -->
     </dependencies>
+    <build>
+      <finalName>java-jenkins-docker</finalName>
+    </build>
 </project>

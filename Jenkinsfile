@@ -13,7 +13,15 @@ pipeline {
         stage('Build jar') { 
             steps {
                 script {
-                    echo "Building...."
+                    echo "Building jar.."
+                    sh 'mvn package'
+                } 
+            }
+        }
+        stage('create docker image') { 
+            steps {
+                script {
+                    echo "Building docker image.."
                     sh 'mvn package'
                 } 
             }
