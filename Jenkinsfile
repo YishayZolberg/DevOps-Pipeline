@@ -1,15 +1,21 @@
 pipeline {
-    agent any 
+    agent any
+    tools {
+        maven 'Maven'
+    }
     stages {
-        stage('Build') { 
+        stage('pull from private repo') { 
             steps {
                 sh 'rm -fr amits-project'
-                sh 'git clone https://github.com/YishayZolberg/amits-project.git'
+                sh 'git clone https://github.com/YishayZolberg/DevOps-Pipline.git'
             }
         }
-        stage('Test') { 
+        stage('Build jar') { 
             steps {
-                echo "uFP2xtzQtmikUqA" 
+                script {
+                    echo "Building...."
+                    sh 'mvn package'
+                } 
             }
         }
         stage('Deploy') { 
