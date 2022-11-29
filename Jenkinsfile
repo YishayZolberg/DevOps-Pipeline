@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     echo "Building docker image.."
-                    sh 'mvn package'
+                    sh 'docker build -t amitspipeline:1.0 .'
                 } 
             }
         }
