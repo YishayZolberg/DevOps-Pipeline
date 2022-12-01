@@ -40,4 +40,16 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            echo 'DONE'
+        }
+        failure {
+            echo "bad news :-("
+            mail to: YishayZolberg@gmail.com, subject: 'The Pipeline failed :('
+        }
+        sucsess {
+            echo "the pipeline finish with all stages"
+        }
+    }
 }
